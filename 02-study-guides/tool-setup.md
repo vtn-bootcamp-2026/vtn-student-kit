@@ -1,9 +1,9 @@
 ---
 mo-ta: huong dan thiet lap cong cu thuc hanh va tai khoan ca nhan
 trang-thai: active
-phien-ban: v1.5
+phien-ban: v1.6
 created-at: 2026-05-17 13:37 +07:00
-updated-at: 2026-06-05 00:00 +07:00
+updated-at: 2026-06-05 10:30 +07:00
 ---
 
 # Hướng dẫn thiết lập công cụ thực hành: tool setup
@@ -67,4 +67,10 @@ Các công cụ cục bộ giúp thực hành sâu hơn và tạo phương án d
 ### 3.2 Visual Studio Code & Git
 - **VS Code:** Tải và cài đặt tại [https://code.visualstudio.com/](https://code.visualstudio.com/)
 - **Git:** Tải và cài đặt tại [https://git-scm.com/](https://git-scm.com/)
+
+### 3.3 Antigravity IDE & Antigravity 2.0 (Khuyên dùng cho Vibe Coding & Agentic AI)
+- **Tải về:** Tải bản cài đặt từ trang chủ **[antigravity.google](https://antigravity.google)** hoặc từ đường dẫn phân phối nội bộ do BTC lớp học cung cấp.
+- **Mục đích:** Thực hành các bài lab lập trình tự trị bằng ngôn ngữ tự nhiên (Vibe coding) và điều phối tác nhân AI (Agent orchestration) ở Ngày 2 & 3.
+- **Cấu hình:** Kết nối Gemini API Key cá nhân vào IDE để bắt đầu làm việc.
+
 
