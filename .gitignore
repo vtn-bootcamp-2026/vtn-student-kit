@@ -1,0 +1,62 @@
+# Script dong bo hoa cu
+sync-from-bootcamp.ps1
+
+# File he dieu hanh va trinh soan thao
+desktop.ini
+Thumbs.db
+.DS_Store
+*.tmp
+*.temp
+~$*
+*.bak
+*.swp
+*.swo
+
+# Workspace va cau hinh ca nhan
+*.code-workspace
+.vscode/
+.idea/
+.claude/
+.cursor/
+.windsurf/
+*.local.*
+
+# Secret/API key/env local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*secret*
+*secrets*
+*api-key*
+*apikey*
+
+# Cache va dependencies local
+node_modules/
+.npm/
+.npm-cache/
+.cache/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Output runtime/log local
+logs/
+*.log
+debug.log*
+coverage/
+
+# Tai lieu/bai thuc hanh mau cho hoc vien: luon theo doi trong Git.
+!03-practices/
+!03-practices/**
+
+# Ngoai le cua ngoai le: file he dieu hanh khong phai tai lieu thuc hanh.
+03-practices/**/desktop.ini
+03-practices/desktop.ini
+
+# Cau hinh agent ca nhan khong phai vat lieu bai thuc hanh.
+03-practices/**/.claude/
+03-practices/**/.claude/**

@@ -1,0 +1,13 @@
+question_id,category,question,expected_source,expected_behavior
+Q-001,in-scope-direct,Nhan vien chinh thuc duoc bao nhieu ngay phep nam?,POL-LEAVE-001 muc 1.1,Trả lời đúng số ngày phép theo thâm niên + trích dẫn
+Q-002,in-scope-direct,Muc phu cap an trua la bao nhieu?,POL-ALLOW-001 muc 1.1,Trả lời 30.000 VNĐ/ngày + trích dẫn
+Q-003,in-scope-direct,Quy trinh xin nghi phep nhu the nao?,POL-LEAVE-001 muc 1.3,Mô tả đủ 4 bước quy trình + trích dẫn
+Q-004,in-scope-cross,Tham nien 6 nam thi duoc bao nhieu ngay phep?,POL-LEAVE-001 + POL-SENIOR-001,Cần kết hợp: 14 ngày phép cơ bản + 2 ngày phép thêm = 16 ngày
+Q-005,in-scope-direct,Nhan vien thu viec co duoc phu cap dien thoai khong?,POL-ALLOW-001 muc 3.2,Trả lời: KHÔNG + trích dẫn điều kiện
+Q-006,in-scope-cross,Cong ty co ho tro hoc MBA khong?,POL-TRAIN-001 muc 4.1,Trả lời: CÓ, tài trợ tối đa 50% học phí + trích dẫn điều kiện
+Q-007,in-scope-direct,Nghi om qua 30 ngay thi luong nhu the nao?,POL-LEAVE-001 muc 2.1,Trả lời: 70% lương + trích dẫn
+Q-008,in-scope-cross,Toi da lam 3 nam muon nghi viec thi phep du co duoc quy doi tien khong?,POL-LEAVE-001 muc 1.2,Trả lời: CÓ, vì đang nghỉ việc → phép dư được quy đổi thành tiền + trích dẫn
+Q-009,ambiguous,Chinh sach cua cong ty co tot khong?,KHONG co trong KB,Yêu cầu làm rõ câu hỏi hoặc từ chối
+Q-010,ambiguous,Toi nghi 1 ngay thi duoc huong luong khong?,KHONG ro loai nghi,Yêu cầu làm rõ loại nghỉ (phép/ốm/không lương)
+Q-011,out-of-scope,Chinh sach bao hiem xa hoi cua cong ty nhu the nao?,KHONG co trong KB,Từ chối + gợi ý liên hệ nhân sự
+Q-012,out-of-scope,Toi muon xin chuyen cong tac sang Ha Noi thi lam sao?,KHONG co trong KB,Từ chối + gợi ý liên hệ nhân sự
