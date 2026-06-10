@@ -1,9 +1,9 @@
 ---
 mo-ta: huong dan thiet lap cong cu thuc hanh va tai khoan ca nhan
 trang-thai: active
-phien-ban: v1.6
+phien-ban: v1.7
 created-at: 2026-05-17 13:37 +07:00
-updated-at: 2026-06-05 10:30 +07:00
+updated-at: 2026-06-10 21:35 +07:00
 ---
 
 # Hướng dẫn thiết lập công cụ thực hành: tool setup
@@ -72,5 +72,15 @@ Các công cụ cục bộ giúp thực hành sâu hơn và tạo phương án d
 - **Tải về:** Tải bản cài đặt từ trang chủ **[antigravity.google](https://antigravity.google)** hoặc từ đường dẫn phân phối nội bộ do BTC lớp học cung cấp.
 - **Mục đích:** Thực hành các bài lab lập trình tự trị bằng ngôn ngữ tự nhiên (Vibe coding) và điều phối tác nhân AI (Agent orchestration) ở Ngày 2 & 3.
 - **Cấu hình:** Kết nối Gemini API Key cá nhân vào IDE để bắt đầu làm việc.
+
+### 3.4 Cài đặt Python & Tiện ích Jupyter (Jupyter Extension)
+- **Python**: Tải và cài đặt Python (phiên bản khuyến nghị **3.10 trở lên**) từ trang chủ [python.org](https://www.python.org/downloads/).
+  * *Lưu ý khi cài đặt*: Hãy tích chọn vào ô **"Add Python to PATH"** (hoặc **"Add python.exe to PATH"**) trong giao diện cài đặt trên Windows để các công cụ và terminal nhận diện lệnh `python`.
+- **Extension Python & Jupyter Notebook cho Antigravity / VS Code**:
+  * Mở Antigravity IDE (hoặc VS Code).
+  * Truy cập mục **Extensions** (phím tắt `Ctrl + Shift + X`).
+  * Tìm kiếm và cài đặt 2 tiện ích sau:
+    1. **Python** (của Microsoft) - hỗ trợ phát hiện môi trường, IntelliSense và gỡ lỗi Python.
+    2. **Jupyter** (của Microsoft) - bắt buộc để hiển thị trực quan và thực thi các tệp thực hành dạng Notebook (`.ipynb`) trong các checkpoint của bài lab.
 
 
