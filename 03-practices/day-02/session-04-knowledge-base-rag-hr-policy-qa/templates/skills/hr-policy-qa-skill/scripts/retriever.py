@@ -84,7 +84,7 @@ def _embed_query(query: str) -> list[float] | None:
 
 def _load_chunks_from_file(path: str) -> list[dict[str, Any]]:
     """Load chunks from a JSON file produced by chunker.py."""
-    p = Path(path)
+    p = Path(path).resolve()
     if not p.exists():
         print(f"[retriever] Chunks file not found: {path}")
         return []

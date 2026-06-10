@@ -1,13 +1,13 @@
 BÁO CÁO VẬN HÀNH THỬ NGHIỆM VÀ PHÂN BỔ NHÂN SỰ PHÒNG KỸ THUẬT - VIETTEL NETWORK
 
 1. THÔNG TIN PHÂN CÔNG ĐỊA BÀN:
-- Kỹ sư đầu mối khu vực phía Bắc: Anh Hoa (điện thoại: +84 912 345 678, email: [REDACTED_EMAIL]). Anh Hoa chịu trách nhiệm giám sát hoạt động bảo dưỡng và đi mua hoa, cây cảnh trang trí cho văn phòng chi nhánh nhân dịp kỷ niệm thành lập.
-- Kỹ sư trực ca khu vực phía Nam: Chị Hồng (điện thoại: [REDACTED_PHONE], email: [REDACTED_EMAIL]). Chị Hồng rất yêu thích màu hồng và thường xuyên sử dụng trang phục màu hồng khi đi làm việc tại phòng SCADA của trạm.
-- Nhân sự hỗ trợ kỹ thuật: Anh Văn (CCCD: [REDACTED_CCCD]) phụ trách hỗ trợ dịch tài liệu từ tiếng Anh Văn sang tiếng Việt cho các chuyên gia nước ngoài tại trạm truyền dẫn Đông Anh.
+- Kỹ sư đầu mối khu vực phía Bắc: Anh Hoa (điện thoại: +84 912 345 678, email: hoa.nguyen@viettel.com.vn). Anh Hoa chịu trách nhiệm giám sát hoạt động bảo dưỡng và đi mua hoa, cây cảnh trang trí cho văn phòng chi nhánh nhân dịp kỷ niệm thành lập.
+- Kỹ sư trực ca khu vực phía Nam: Chị Hồng (điện thoại: 0987.654.321, email: hong.le@viettel.com.vn). Chị Hồng rất yêu thích màu hồng và thường xuyên sử dụng trang phục màu hồng khi đi làm việc tại phòng SCADA của trạm.
+- Nhân sự hỗ trợ kỹ thuật: Anh Văn (CCCD: 012345678901) phụ trách hỗ trợ dịch tài liệu từ tiếng Anh Văn sang tiếng Việt cho các chuyên gia nước ngoài tại trạm truyền dẫn Đông Anh.
 
 2. THÔNG SỐ VẬN HÀNH SCADA VÀ CẢNH BÁO BẪY SỐ ĐO:
 - Thiết bị đo công suất phát sóng mã hiệu VTN-9988 tại trạm truyền dẫn ghi nhận mức độ suy hao tín hiệu đo được vào lúc 12:00 là: 0.912.345.678 dB. Mức độ suy hao này hoàn toàn bình thường (yêu cầu bộ lọc không ẩn danh nhầm số đo decibel này thành số điện thoại).
-- Thiết bị Switch mạng lõi Cisco Serial No: [REDACTED_CCCD] (đây là mã serial thiết bị 12 chữ số, yêu cầu phân biệt không ẩn danh nhầm thành số định danh cá nhân CCCD).
+- Thiết bị Switch mạng lõi Cisco Serial No: 123456789012 (đây là mã serial thiết bị 12 chữ số, yêu cầu phân biệt không ẩn danh nhầm thành số định danh cá nhân CCCD).
 
 3. CÁC TRƯỜNG HỢP LỖI THÔNG TIN DO HỌC VIÊN CẦN QUÉT VÀ PHÁT HIỆN:
 - Số CCCD lỗi định dạng của nhân sự thử việc Nguyễn Văn An: 1234567890 (thiếu 2 chữ số so với định dạng chuẩn 12 số).

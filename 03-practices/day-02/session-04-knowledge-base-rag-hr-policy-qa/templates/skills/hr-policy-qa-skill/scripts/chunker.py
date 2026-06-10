@@ -104,7 +104,7 @@ def load_policy_files(kb_dir: str) -> list[dict[str, Any]]:
     Each file is parsed for YAML frontmatter. Returns a list of dicts with keys:
         filename, doc_id, metadata (frontmatter), content (body)
     """
-    kb_path = Path(kb_dir)
+    kb_path = Path(kb_dir).resolve()
     if not kb_path.exists():
         print(f"[chunker] Warning: directory not found: {kb_dir}")
         return []
@@ -322,7 +322,7 @@ def run_pipeline(kb_dir: str, output_path: str | None = None) -> list[dict[str, 
 
     # Save to JSON if output path provided
     if output_path:
-        out = Path(output_path)
+        out = Path(output_path).resolve()
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(
             json.dumps(all_chunks, ensure_ascii=False, indent=2),

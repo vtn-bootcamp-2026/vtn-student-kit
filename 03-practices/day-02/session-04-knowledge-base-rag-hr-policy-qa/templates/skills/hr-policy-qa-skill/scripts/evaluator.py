@@ -45,7 +45,7 @@ def load_test_questions(csv_path: str) -> list[dict[str, Any]]:
     Expected columns: question, classification, expected_answer, expected_source
     Returns list of dicts, one per row.
     """
-    p = Path(csv_path)
+    p = Path(csv_path).resolve()
     if not p.exists():
         print(f"[evaluator] File not found: {csv_path}")
         return []
@@ -54,10 +54,13 @@ def load_test_questions(csv_path: str) -> list[dict[str, Any]]:
     with open(p, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
+            category_val = row.get("category", "").strip() or row.get("classification", "").strip()
+            classification = "in-scope" if category_val.startswith("in-scope") else category_val
+            exp_ans = row.get("expected_answer", "").strip() or row.get("expected_behavior", "").strip()
             questions.append({
                 "question": row.get("question", "").strip(),
-                "classification": row.get("classification", "in-scope").strip(),
-                "expected_answer": row.get("expected_answer", "").strip(),
+                "classification": classification,
+                "expected_answer": exp_ans,
                 "expected_source": row.get("expected_source", "").strip(),
             })
 
@@ -374,7 +377,7 @@ def generate_report(
 
     # Save to file if output path provided
     if output_path:
-        out = Path(output_path)
+        out = Path(output_path).resolve()
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(report, encoding="utf-8")
         print(f"[evaluator] Report saved to {output_path}")
@@ -421,7 +424,7 @@ def main():
 
     # Load source chunks for cross-checking
     source_chunks: list[dict[str, Any]] = []
-    chunks_path = Path(args.chunks)
+    chunks_path = Path(args.chunks).resolve()
     if chunks_path.exists():
         with open(chunks_path, "r", encoding="utf-8") as f:
             source_chunks = json.load(f)
