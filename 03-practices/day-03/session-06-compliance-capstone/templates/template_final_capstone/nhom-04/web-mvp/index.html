@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTN HR Policy Assistant - Web MVP</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="logo-text">
+                    <h2>VTN HR AI</h2>
+                    <span>Policy Assistant v1.0</span>
+                </div>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item active" data-tab="chat">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Trò chuyện AI</span>
+                </a>
+                <a href="#" class="menu-item" data-tab="hr-dashboard">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <span>Kiểm duyệt HR</span>
+                    <span class="badge" id="pending-badge">1</span>
+                </a>
+                <a href="#" class="menu-item" data-tab="security">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Security Playground</span>
+                </a>
+                <a href="#" class="menu-item" data-tab="indexer">
+                    <i class="fa-solid fa-database"></i>
+                    <span>Số hóa Tri thức</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="connection-status">
+                    <span class="status-indicator online" id="conn-indicator"></span>
+                    <span id="conn-text">Ollama: Đang kiểm tra...</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- TAB 1: CHAT INTERFACE -->
+            <section class="tab-content active" id="tab-chat">
+                <header class="content-header">
+                    <h1>Trợ lý chính sách nhân sự</h1>
+                    <p>Tra cứu nhanh quy chế, chế độ phúc lợi, công tác phí nội bộ Viettel Net.</p>
+                </header>
+
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Bot Greeting -->
+                        <div class="message bot">
+                            <div class="message-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                            <div class="message-bubble">
+                                <p>Xin chào đồng chí! Tôi là Trợ lý AI chính sách nhân sự của Viettel Net. Tôi hoạt động offline và bảo mật dữ liệu tuyệt đối.</p>
+                                <p>Đồng chí có thể hỏi tôi về chế độ nghỉ phép năm, định mức công tác phí, bảo hiểm... bằng cách gõ vào khung chat hoặc click chọn các gợi ý bên dưới.</p>
+                                <div class="suggested-questions">
+                                    <button class="suggest-btn">Làm việc 7 năm thì phép năm là bao nhiêu?</button>
+                                    <button class="suggest-btn">Đi công tác Điện Biên thuê phòng 650k được duyệt không?</button>
+                                    <button class="suggest-btn">Thử việc có được đóng bảo hiểm y tế tự nguyện?</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RAG Pipeline Monitor -->
+                    <div class="rag-monitor hidden" id="rag-monitor">
+                        <span class="monitor-title"><i class="fa-solid fa-gears"></i> RAG Pipeline Status:</span>
+                        <div class="monitor-steps">
+                            <span class="step" id="step-guard"><i class="fa-regular fa-circle-check"></i> 1. Security Check</span>
+                            <span class="step" id="step-retrieve"><i class="fa-regular fa-circle-check"></i> 2. Retrieval DB</span>
+                            <span class="step" id="step-generate"><i class="fa-regular fa-circle-check"></i> 3. LLM Inference</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="Nhập câu hỏi của đồng chí về quy chế nhân sự..." autocomplete="off">
+                        <button id="send-btn" class="primary-btn"><i class="fa-solid fa-paper-plane"></i> Gửi</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: HR DASHBOARD (HITL) -->
+            <section class="tab-content" id="tab-hr-dashboard">
+                <header class="content-header">
+                    <h1>Kiểm duyệt HR (Human-in-the-Loop)</h1>
+                    <p>Quản lý các phản hồi chính sách nhạy cảm vượt định mức hoặc cần con người xác nhận trước khi gửi.</p>
+                </header>
+
+                <div class="dashboard-container">
+                    <div class="dashboard-card">
+                        <h3><i class="fa-solid fa-list-check"></i> Hàng đợi kiểm duyệt</h3>
+                        <div class="review-queue" id="review-queue">
+                            <!-- Mock Review Item -->
+                            <div class="review-item" id="review-item-mock">
+                                <div class="review-meta">
+                                    <span class="user-tag"><i class="fa-solid fa-user"></i> Nguyễn Văn An (Nhân viên)</span>
+                                    <span class="time-tag"><i class="fa-regular fa-clock"></i> 2 phút trước</span>
+                                </div>
+                                <div class="review-body">
+                                    <p class="label">Câu hỏi của nhân viên:</p>
+                                    <p class="question-text">"Tôi đi công tác Điện Biên và thuê phòng hết 650.000đ/ngày thì có được thanh toán không?"</p>
+                                    <p class="label">AI Đề xuất trả lời (Cờ needs_human_review = True):</p>
+                                    <textarea class="edit-area" id="edit-response-mock">Theo Điều 4 Quy định số 102/QĐ-VTN, mức hỗ trợ tiền phòng tối đa khi đi công tác tại các tỉnh miền núi phía Bắc (bao gồm Điện Biên) thông thường là 500.000đ/ngày. Trường hợp thuê phòng hết 650.000đ/ngày (vượt quá 20% định mức tối đa đặc biệt là 600.000đ/ngày), bạn sẽ không được thanh toán phần vượt định mức này trừ khi có văn bản phê duyệt đặc cách từ Trưởng phòng ban hoặc cấp có thẩm quyền.</textarea>
+                                </div>
+                                <div class="review-actions">
+                                    <button class="approve-btn"><i class="fa-solid fa-check"></i> Phê duyệt & Gửi</button>
+                                    <button class="reject-btn"><i class="fa-solid fa-xmark"></i> Điều chỉnh thủ công</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: SECURITY PLAYGROUND -->
+            <section class="tab-content" id="tab-security">
+                <header class="content-header">
+                    <h1>Security Playground (Prompt Injection Defense)</h1>
+                    <p>Mô phỏng và kiểm thử các kịch bản tấn công tiêm lệnh bảo mật vào hệ thống AI.</p>
+                </header>
+
+                <div class="security-grid">
+                    <!-- Left: Attack Simulators -->
+                    <div class="dashboard-card">
+                        <h3><i class="fa-solid fa-skull-crossbones"></i> Kịch bản Tấn công</h3>
+                        <div class="attack-scenarios">
+                            <div class="scenario-card">
+                                <h4>Jailbreak (Vượt rào hệ thống)</h4>
+                                <p>Cố tình ra lệnh cho AI đóng vai trò khác và tiết lộ thông tin mật của hệ thống.</p>
+                                <button class="attack-btn" data-attack="jailbreak">Chạy thử kịch bản</button>
+                            </div>
+                            <div class="scenario-card">
+                                <h4>Data Exfiltration (Đánh cắp dữ liệu)</h4>
+                                <p>Yêu cầu AI mã hóa dữ liệu quy chế thành Base64 và chuyển đến liên kết độc hại ngoài mạng.</p>
+                                <button class="attack-btn" data-attack="exfiltration">Chạy thử kịch bản</button>
+                            </div>
+                            <div class="scenario-card">
+                                <h4>Role Confusion (Tráo vai trò)</h4>
+                                <p>Cố gắng đóng giả lập trình viên gỡ lỗi để ra lệnh bắt AI in mật khẩu hệ thống.</p>
+                                <button class="attack-btn" data-attack="confusion">Chạy thử kịch bản</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Security Monitor -->
+                    <div class="dashboard-card">
+                        <h3><i class="fa-solid fa-desktop-retro"></i> Nhật ký Giám sát Bảo mật</h3>
+                        <div class="security-monitor">
+                            <div class="defense-status border-safe" id="defense-card">
+                                <div class="indicator-icon safe" id="defense-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                <div class="indicator-text">
+                                    <h4 id="defense-title">Trạng thái: AN TOÀN (SAFE)</h4>
+                                    <p id="defense-desc">Không phát hiện hành vi tấn công lời nhắc.</p>
+                                </div>
+                            </div>
+                            <div class="log-console">
+                                <span class="console-title">Nhật ký log phi nhạy cảm (execution-log.csv):</span>
+                                <pre id="log-content">ID, User_Role, Status, PII_Redacted, Needs_Review, Security_Alert, Created_At
+1001, User, SUCCESS, 0, False, False, 2026-06-10 15:52:00
+1002, User, SUCCESS, 1, True, False, 2026-06-10 15:52:15</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: KNOWLEDGE INDEXER -->
+            <section class="tab-content" id="tab-indexer">
+                <header class="content-header">
+                    <h1>Số hóa tri thức & Cập nhật quy chế</h1>
+                    <p>Kéo thả văn bản quy chế chính sách nhân sự mới để cập nhật cơ sở dữ liệu Vector Database cục bộ.</p>
+                </header>
+
+                <div class="indexer-container">
+                    <div class="dashboard-card text-center">
+                        <div class="upload-area" id="drop-zone">
+                            <div class="upload-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                            <h3>Kéo thả file quy chế vào đây</h3>
+                            <p>Hỗ trợ định dạng PDF, DOCX, TXT (Tối đa 15MB)</p>
+                            <span class="upload-divider">Hoặc</span>
+                            <button class="primary-btn" onclick="document.getElementById('file-input').click()">Chọn file</button>
+                            <input type="file" id="file-input" class="hidden" accept=".pdf,.docx,.txt">
+                        </div>
+
+                        <!-- Progress Bar Monitor -->
+                        <div class="indexing-progress hidden" id="index-progress">
+                            <h4 id="progress-status">Đang xử lý tài liệu...</h4>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="progress-bar-fill"></div>
+                            </div>
+                            <div class="progress-steps" id="progress-steps">
+                                <span><i class="fa-solid fa-check"></i> Cắt nhỏ văn bản (Chunking)</span>
+                                <span><i class="fa-solid fa-spinner fa-spin"></i> Tạo Vector Embedding...</span>
+                                <span><i class="fa-regular fa-circle"></i> Đã cập nhật Vector DB</span>
+                            </div>
+                        </div>
+
+                        <!-- Current Tri thức List -->
+                        <div class="tri-thuc-list">
+                            <h3><i class="fa-solid fa-folder-open"></i> Tài liệu tri thức hiện có</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Tên văn bản</th>
+                                        <th>Kích thước</th>
+                                        <th>Số lượng chunks</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Quy chế 456/QC-VTN về chế độ nghỉ phép năm 2025.pdf</td>
+                                        <td>1.2 MB</td>
+                                        <td>142 Chunks</td>
+                                        <td><span class="status-tag active">Đã lập chỉ mục</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quy định 102/QĐ-VTN về định mức công tác phí.pdf</td>
+                                        <td>850 KB</td>
+                                        <td>94 Chunks</td>
+                                        <td><span class="status-tag active">Đã lập chỉ mục</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hướng dẫn 15/HD-VTN về bảo hiểm y tế tự nguyện.pdf</td>
+                                        <td>520 KB</td>
+                                        <td>48 Chunks</td>
+                                        <td><span class="status-tag active">Đã lập chỉ mục</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script Application -->
+    <script src="app.js"></script>
+</body>
+</html>
