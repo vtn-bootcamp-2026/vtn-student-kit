@@ -16,17 +16,13 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1733173600,
-          "mode": "list",
-          "cachedResultName": "input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=1733173600"
+          "value": "input",
+          "mode": "name"
         },
         "options": {}
       },
@@ -40,8 +36,8 @@
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "",
+          "name": ""
         }
       }
     },

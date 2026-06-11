@@ -1,47 +1,43 @@
 {
-  "name": "smart-ticket-triage-solution-workflow-ok",
+  "name": "checkpoint-step-8",
   "nodes": [
     {
       "parameters": {},
-      "id": "5e67a47b-357f-4ddd-a393-8849201488ff",
+      "id": "5975a839-dd30-4e39-81f2-444e593a2681",
       "name": "When clicking 'Execute workflow'",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -1712,
-        368
+        -656,
+        1040
       ]
     },
     {
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1733173600,
-          "mode": "list",
-          "cachedResultName": "input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=1733173600"
+          "value": "input",
+          "mode": "name"
         },
         "options": {}
       },
-      "id": "897c49a7-4b87-4a33-aeba-c71d54097f00",
+      "id": "5a58d1e3-93e2-4bb3-a5a3-05c91d17549e",
       "name": "Get row(s) in sheet",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4,
       "position": [
-        -1536,
-        368
+        -480,
+        1040
       ],
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -72,10 +68,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -1344,
-        368
+        -288,
+        1040
       ],
-      "id": "94b45745-d29b-4601-b390-daed2dbde6a6",
+      "id": "8d545b49-6b5e-4448-8ab7-96532fafa59a",
       "name": "Filter, workflow_status = New"
     },
     {
@@ -155,10 +151,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -1136,
-        368
+        -80,
+        1040
       ],
-      "id": "59748588-7911-4ff5-aee3-7127746b7bd9",
+      "id": "696b73cd-57ae-4a64-a6ae-cb181ddd03e5",
       "name": "Edit Fields"
     },
     {
@@ -198,10 +194,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -928,
-        368
+        128,
+        1040
       ],
-      "id": "fbe87b8e-5db2-4e82-8081-a6a91cab8e7f",
+      "id": "c1e743bd-e45d-4da0-a3d3-3ccd25bd1d93",
       "name": "If"
     },
     {
@@ -257,10 +253,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -704,
-        672
+        352,
+        1344
       ],
-      "id": "646b0c3f-a7e7-47f5-a5d2-7f68776e1049",
+      "id": "828c2d94-7a24-400e-a792-283d5b7ba16b",
       "name": "Edit Fields, Mark Format_Error"
     },
     {
@@ -271,19 +267,19 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -1360,
-        144
+        -304,
+        816
       ],
-      "id": "c618c3ff-e57c-4ca4-8d7a-8110ddcfa980",
+      "id": "9780d510-9434-4ecc-acf8-32ba5ee95434",
       "name": "Loop Over Items"
     },
     {
       "parameters": {
         "modelId": {
           "__rl": true,
-          "value": "models/gemini-3.5-flash",
+          "value": "models/gemini-flash-latest",
           "mode": "list",
-          "cachedResultName": "models/gemini-3.5-flash"
+          "cachedResultName": "models/gemini-flash-latest"
         },
         "messages": {
           "values": [
@@ -302,14 +298,14 @@
       "type": "@n8n/n8n-nodes-langchain.googleGemini",
       "typeVersion": 1.2,
       "position": [
-        -1024,
-        160
+        32,
+        832
       ],
-      "id": "450f4119-be9f-415f-8b7c-ff12a42bbc1f",
+      "id": "dc9809e0-8932-47db-9e2d-cca0948d8d69",
       "name": "Message a model",
       "credentials": {
         "googlePalmApi": {
-          "id": "tkVThA6aB48phz8O",
+          "id": "z5aV0XrMvbAaCvDq",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -379,10 +375,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -720,
-        160
+        336,
+        832
       ],
-      "id": "c8d9c604-d893-4eeb-8a7b-d2529ebfc5aa",
+      "id": "7ce61517-89e9-46ac-b909-ae9e0ea0920f",
       "name": "Attach raw AI output"
     },
     {
@@ -474,10 +470,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -720,
-        -32
+        336,
+        640
       ],
-      "id": "2ac9f6ad-e930-4bf9-a828-3e781b20ab65",
+      "id": "50fa8fb1-0dda-4e2a-b216-3c06c28f397d",
       "name": "Build classified ticket step 6",
       "disabled": true
     },
@@ -489,10 +485,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1120,
-        -32
+        -64,
+        640
       ],
-      "id": "eafccad1-6bde-44a2-8c0e-16e9a5331da4",
+      "id": "1e58308a-be65-4427-9d83-3d8ade7d1068",
       "name": "Parse Gemini JSON"
     },
     {
@@ -512,10 +508,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -448,
-        336
+        608,
+        1008
       ],
-      "id": "e7f7f2bb-269e-4323-b7cb-918c9440a923",
+      "id": "3e9c8c0e-0ca1-4cdc-ae04-c694effb0dd6",
       "name": "Compute route_key"
     },
     {
@@ -617,10 +613,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
       "position": [
-        -240,
-        304
+        816,
+        976
       ],
-      "id": "d79f6df7-90ef-49ec-b268-ab8fb2ba1553",
+      "id": "fafc42d1-238b-4687-8ba2-e79c28e01cd4",
       "name": "Switch"
     },
     {
@@ -628,17 +624,13 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1987908757,
-          "mode": "list",
-          "cachedResultName": "review_queue",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=1987908757"
+          "value": "review_queue",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -738,15 +730,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        16,
-        480
+        1072,
+        1152
       ],
-      "id": "c1456688-9e6b-424d-afe0-ff3de7bb1f4c",
+      "id": "ab5f8432-03b9-49f4-88df-18b47355ac48",
       "name": "Append review_queue",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -755,17 +747,13 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 114938839,
-          "mode": "list",
-          "cachedResultName": "execution_log",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=114938839"
+          "value": "execution_log",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -889,15 +877,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        224,
-        480
+        1280,
+        1152
       ],
-      "id": "21a8db27-0bf1-420f-a916-525f672aa178",
+      "id": "9ffc1b24-d8ab-43ab-a35a-02badd122d8b",
       "name": "Append execution_log, human review",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -906,17 +894,13 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 114938839,
-          "mode": "list",
-          "cachedResultName": "execution_log",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=114938839"
+          "value": "execution_log",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1041,15 +1025,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        224,
-        -64
+        1280,
+        608
       ],
-      "id": "8b797234-cad7-4607-b2e8-aa914dc16ef7",
+      "id": "861c6519-5171-48a6-8ea0-4f41b13af2aa",
       "name": "Append row in sheet, hardware",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1058,17 +1042,13 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 114938839,
-          "mode": "list",
-          "cachedResultName": "execution_log",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=114938839"
+          "value": "execution_log",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1193,15 +1173,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        224,
-        128
+        1280,
+        800
       ],
-      "id": "bbc2d7bc-581b-43fc-b282-5003ba807d8b",
+      "id": "7c30c741-4018-479b-afba-347515cb3c2f",
       "name": "Append row in sheet, Software",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1210,17 +1190,13 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 114938839,
-          "mode": "list",
-          "cachedResultName": "execution_log",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=114938839"
+          "value": "execution_log",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1345,15 +1321,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        224,
-        304
+        1280,
+        976
       ],
-      "id": "38053362-dcdc-4eb6-8dad-03c71dd0875b",
+      "id": "12373907-ea65-4f2a-b77c-3edd1c75d326",
       "name": "Append row in sheet, Network",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1362,17 +1338,13 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 114938839,
-          "mode": "list",
-          "cachedResultName": "execution_log",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=114938839"
+          "value": "execution_log",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1494,15 +1466,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        240,
-        672
+        1296,
+        1344
       ],
-      "id": "c517cf64-4fab-4f0c-b459-74e1170f2f2a",
+      "id": "9a1a6181-db07-4c16-b178-9ed7df79b284",
       "name": "Append execution_log, format error",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1529,10 +1501,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        560,
-        304
+        1616,
+        976
       ],
-      "id": "3391ba2a-962f-488c-8838-eb19a157dba8",
+      "id": "fa349feb-4e03-47c1-b691-55b6e71f62ba",
       "name": "Prepare_workflow_status_update"
     },
     {
@@ -1540,17 +1512,13 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY",
-          "mode": "list",
-          "cachedResultName": "smart-tickage-triage",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit?usp=drivesdk"
+          "value": "1CGDEsYlHjHie8BZCLNWwx4QP2nqU8hEd4wLGVUwEd-8",
+          "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1733173600,
-          "mode": "list",
-          "cachedResultName": "input",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1DBS2rYiRQ3NzcHjg0zA_hURZDllfICnar9YDqSGzWwY/edit#gid=1733173600"
+          "value": "input",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -1681,15 +1649,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.7,
       "position": [
-        800,
-        304
+        1856,
+        976
       ],
-      "id": "3217573c-cccb-491e-8b20-b606fb71b5bf",
+      "id": "788bfb06-5ef8-42b5-89b3-a8b37b6bca3b",
       "name": "Update row in sheet Input",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "sumC7KMChnbc4kCV",
-          "name": "Google Sheets OAuth2 API"
+          "id": "EWGTli714wI0X47W",
+          "name": "Google Sheets account"
         }
       }
     },
@@ -1701,11 +1669,11 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "position": [
-        -1776,
-        0
+        -832,
+        480
       ],
       "typeVersion": 1,
-      "id": "95dee3cc-9881-45f0-af9a-0958536ab684",
+      "id": "64a3fca9-7c85-42ec-9c41-d5a3b6a99262",
       "name": "Sticky Note"
     }
   ],
@@ -1970,15 +1938,14 @@
   "active": false,
   "settings": {
     "executionOrder": "v1",
-    "binaryMode": "separate",
-    "availableInMCP": false
+    "binaryMode": "separate"
   },
-  "versionId": "f7dbb01f-4188-40a2-a4cd-b260befb347e",
+  "versionId": "49aa47aa-ebfd-4a48-9c42-64f049e11230",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "027564bf830651dea26c77deac55005563044ccdcad83f1c2a6bf055be9e8e7e"
+    "instanceId": "7f098e6ac75e3d3b2a2463a5b20677e80816a14eb90a62bded7d278e61e0850c"
   },
   "nodeGroups": [],
-  "id": "cKX503NibBnGfJp7",
+  "id": "x8upU9U10HBZLXJJ",
   "tags": []
 }
