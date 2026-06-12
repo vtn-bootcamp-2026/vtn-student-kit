@@ -1,4 +1,4 @@
----
+﻿---
 mo-ta: mau goi y loi nhac tu dong hoa phac thao use case bang AI cho session 01
 trang-thai: active
 phien-ban: v1.1
