@@ -1,2 +1,0 @@
-run_id,contract_id,status,error_type,needs_human_review,confidence,red_flag_count,missing_field_count,source_evidence_count,route_reason,created_at
-RUN-20260612082008,contract-003-risky,HITL,needs_human_review=true; 4 cờ đỏ: Tự gia hạn bất lợi: chỉ cần thông báo 15 ngày trước; Phạt không giới hạn: không có mức tối đa; Giới hạn trách nhiệm quá thấp: chỉ bằng 1 tháng giá trị; Confidence thấp: 0.65,True,0.65,4,0,3,HITL,2026-06-12T08:20:08.918153
